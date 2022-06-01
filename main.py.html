@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #008080; font-weight: bold;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">sklearn.metrics </span><span class="s0">import </span><span class="s1">cohen_kappa_score</span>
+
+<span class="s1">file = </span><span class="s2">'demo.xlsx'</span>
+
+<span class="s1">data = pd.ExcelFile(file)</span>
+
+
+<span class="s3"># define array of ratings for both raters</span>
+
+<span class="s0">def </span><span class="s1">rater1 </span><span class="s0">as </span><span class="s1">r_1</span>
+<span class="s0">def </span><span class="s1">rater2 </span><span class="s0">as </span><span class="s1">r_2</span>
+<span class="s0">def </span><span class="s1">r_1 = data.parse(sheet_name=</span><span class="s2">'Michael_rater1'</span><span class="s1">,</span>
+           <span class="s1">skiprows=[</span><span class="s4">0</span><span class="s1">])</span>
+
+<span class="s0">def </span><span class="s1">r_2 = pd.read_excel(data,</span>
+              <span class="s1">sheet_name=</span><span class="s2">'Tu_rater2'</span><span class="s1">,</span>
+              <span class="s1">parse_cols=[</span><span class="s4">0</span><span class="s1">],</span>
+              <span class="s1">skiprows=[</span><span class="s4">0</span><span class="s1">])</span>
+<span class="s3"># calculate Cohen's Kappa</span>
+
+<span class="s1">print [cohen_kappa_score(r_1, r_2)]</span>
+
+</pre>
+</body>
+</html>
